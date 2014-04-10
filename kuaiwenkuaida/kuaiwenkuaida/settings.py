@@ -45,7 +45,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -99,3 +99,5 @@ STATICFILES_DIRS = (
    #os.path.join(BASE_DIR,'App/static/').replace('\\','/'),
    os.path.join(BASE_DIR,'kuaiwenkuaida/static/').replace('\\','/'), 
 ) 
+
+#APPEND_SLASH=False

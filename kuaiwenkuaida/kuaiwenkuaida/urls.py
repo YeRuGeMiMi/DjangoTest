@@ -11,4 +11,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^index/$','App.views.index',name='index'),
     url(r'^tiwen/$','App.views.tiwen',name='tiwen'),
+    url(r'^saveQuestion$','App.views.saveQuestion',name='saveQuestion'),
 )
