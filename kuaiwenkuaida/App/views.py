@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponse
-from App.models import Question
+from App.modules import QuestionModule as qumo
+from django.utils import simplejson
 
 # Create your views here.
 #首页
@@ -22,11 +23,36 @@ def tiwen(request):
 def saveQuestion(request):
 	question=request.POST.get('question')
 	answer=request.POST.get('answer')
-	q=Question(question=question,answer=answer)
-	q.save()
-	return HttpResponse()
+	t=get_template('result.html')
+	if  qumo.save(question,answer):
+		html=t.render(Context({'result':'保存问题成功！'}))
+	else :
+		html=t.render(Context({'result':'未知原因，失败！'}))
+	return HttpResponse(html)
 
+#回答
+def huida(request):
+	t=get_template('answer.html')
+	html=t.render(Context())
+	return HttpResponse(html)
 
-	
+#Ajax查询问题
+def ajaxReturn(request):
+	q=qumo.queryRom()
+	json_r=simplejson.dumps(q)
+	return HttpResponse(json_r,mimetype="application/javascript")
+
+#验证回答
+def regAnswer(request):
+	qid=request.POST.get('id')
+	answer=request.POST.get('answer')
+	t=get_template('result.html')
+	if qumo.regAnswer(qid,answer) :
+		html=t.render(Context({'result':'回答正确！'}))
+	else :
+		html=t.render(Context({'result':'回答错误！'}))
+
+	return HttpResponse(html)
+
 
 

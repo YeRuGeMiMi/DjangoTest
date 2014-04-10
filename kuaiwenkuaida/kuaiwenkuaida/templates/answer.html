@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>快问快答</title>
+
+<script type="text/javascript" src="/static/js/jquery-1.7.2.js">
+</script>
+<script type="text/javascript" >
+ 	$(document).ready(function(){
+ 		ajax_ashx();    //加载中执行一次查询
+		setInterval(ajax_ashx,10000);   //每隔十秒跟新一次
+	}); 
+	
+ 	//ajax 取数据
+	function ajax_ashx() {
+		
+		 $.ajax({
+	        url: "../ajax/qustion",
+	        type: "get",
+	        dataType:'json',
+	        success: function(data) {
+	        	
+	        	$("#question").html(data['question']);
+	        	$("#id").attr("value",data['id']);	
+	        	send(10);
+	        },
+	        error: function(XMLHttpRequest, textStatus, errorThrown) {
+	            alert(XMLHttpRequest.responseText, "Failed");
+	        } 
+	    }); 
+		
+	}
+	
+	//十秒倒计时
+ 	function send(i){
+		 var j=i;
+		
+		setInterval(updateNum,1000);
+		function updateNum(){	
+			if(j>0){
+				$("#daojishi").html(j--);
+			}else{
+				return false;
+			}		
+		}
+		 
+		} 
+		
+		
+	
+</script>
+
+</head>
+<body>
+      <h2>回答问题</h2>
+      <form action="../reg/answer" method="post">
+      	Q:<h4 id="question"></h4>
+      	A:<input type="text" id="answer" name="answer"/><br/>
+      	<input type="hidden" value="" id="id" name="id"/>
+      	<input type="submit" value="提交"  />
+      	<!--   <input type="button" id="wo"  value="测试"  onclick="send(10)"/>-->  
+      	倒计时：<div id="daojishi"></div>
+      </form>
+</body>
+</html>
