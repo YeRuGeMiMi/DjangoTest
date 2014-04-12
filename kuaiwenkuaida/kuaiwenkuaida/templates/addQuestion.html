@@ -11,10 +11,15 @@
 <body>
 	<div>
       <h2>提出问题</h2>
-      <form action="../saveQuestion" method="post">
-      	Q:<input type="text" name="question" id="question"/><br/>
-      	A:<input type="text" name="answer" id="answer" /><br/>
-      	<button onclick="this.form.submit()">完成</button>
+      <form action="../tiwen" method="post">
+      	<!-- Q:<input type="text" name="question" id="question"/><br/>
+      	A:<input type="text" name="answer" id="answer" /><br/> -->
+      	<table>
+                  <tr><td>Q:</td><td>{{form.question}}<td></tr>
+                  <tr><td>A:</td><td>{{form.answer}}<td></tr>                 
+            </table>
+            
+      	<input type="submit" value="提交" />
       </form>
     </div>
 </body>
