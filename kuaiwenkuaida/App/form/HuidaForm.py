@@ -7,14 +7,9 @@
 
 from django import forms
 
-
-class TiwenForm(forms.Form):
+class HuidaForm(forms.Form):
 	'''
-		--提问表单
-		--question 问题
-		--answer  答案
+		回答表单
+		answer 答案
 	'''
-	question=forms.CharField(required=True)
-	answer=forms.CharField(required=True)
-	
-
+	answer=forms.CharField(required=1)

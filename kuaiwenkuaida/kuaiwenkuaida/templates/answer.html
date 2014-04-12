@@ -54,9 +54,10 @@
 </head>
 <body>
       <h2>回答问题</h2>
-      <form action="../reg/answer" method="post">
+      <form action="../huida" method="post">
       	Q:<h4 id="question"></h4>
-      	A:<input type="text" id="answer" name="answer"/><br/>
+      	A:<!-- <input type="text" id="answer" name="answer"/><br/> -->
+      	{{form.answer}}
       	<input type="hidden" value="" id="id" name="id"/>
       	<input type="submit" value="提交"  />
       	<!--   <input type="button" id="wo"  value="测试"  onclick="send(10)"/>-->  
