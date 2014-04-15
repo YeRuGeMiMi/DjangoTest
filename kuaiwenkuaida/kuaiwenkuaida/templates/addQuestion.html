@@ -6,18 +6,28 @@
 
 <script type="text/javascript" src="/static/js/jquery-1.7.2.js">
 </script>
+<script type="text/javascript">
+      $(document).ready(function(){
+            setInterval(ajax_captcha,3000);
+      });
+
+      function ajax_captcha(){
+
+      }
+</script>
 
 </head>
 <body>
 	<div>
       <h2>提出问题</h2>
       <form action="../tiwen" method="post">
-      	<!-- Q:<input type="text" name="question" id="question"/><br/>
-      	A:<input type="text" name="answer" id="answer" /><br/> -->
+      	
       	<table>
                   <tr><td>Q:</td><td>{{form.question}}<td></tr>
-                  <tr><td>A:</td><td>{{form.answer}}<td></tr>                 
+                  <tr><td>A:</td><td>{{form.answer}}<td></tr>     
             </table>
+             <p> <label for="id_captcha">验证（必填）：{{form.captcha}}</label> 
+                   </p>
             
       	<input type="submit" value="提交" />
       </form>

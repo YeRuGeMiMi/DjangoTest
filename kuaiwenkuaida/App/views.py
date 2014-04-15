@@ -34,9 +34,11 @@ def tiwen(request):
 	if request.method == 'POST':
 		form=TiwenForm(request.POST)
 		if form.is_valid():
+			human=True
 			#表单模型的非空验证
 			question=form.cleaned_data['question']	
 			answer=form.cleaned_data['answer']
+			
 
 			t=get_template('result.html')
 			if  qumo.save(question,answer):
@@ -74,7 +76,12 @@ def huida(request):
 
 	else :
 		#get提交
+		code=Code(request)
 		form=HuidaForm()
 		t=get_template('answer.html')
-		html=t.render(Context({'form':form}))
+		html=t.render(Context({'form':form,'code':code}))
+
 		return HttpResponse(html)
+
+
+

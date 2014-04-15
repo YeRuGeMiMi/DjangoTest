@@ -6,6 +6,7 @@
 # @Version : 1.0
 
 from django import forms
+from captcha.fields import CaptchaField
 
 
 class TiwenForm(forms.Form):
@@ -16,5 +17,7 @@ class TiwenForm(forms.Form):
 	'''
 	question=forms.CharField(required=True)
 	answer=forms.CharField(required=True)
+	captcha=CaptchaField()
+	
 	
 
