@@ -33,13 +33,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'App',
+    'django.contrib.admin',           #自带后台管理应用
+    'django.contrib.auth',            #认证系统
+    'django.contrib.contenttypes',   #内容类型框架
+    'django.contrib.sessions',       #session框架
+    'django.contrib.messages',       #消息框架
+    'django.contrib.staticfiles',    #静态文件管理框架
+    'App',                           #自定义应用
 )
 
 MIDDLEWARE_CLASSES = (
