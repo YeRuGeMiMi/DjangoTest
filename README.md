@@ -11,6 +11,5 @@ python-2.7.5 Django-1.6.2<br/>
 ### 数据库：<br/>
 MySql5.5 (sql文件位于kuaiweikuaida目录下)<br/>
 
-###测试提交
 
 
